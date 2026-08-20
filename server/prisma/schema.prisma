@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum StaffRole {
+  ADMIN
+  MANAGER
+  OPERATOR
+}
+
+model Staff {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         StaffRole @default(OPERATOR)
+  createdAt    DateTime  @default(now())
+}
+
+model RestaurantSettings {
+  id                    Int      @id @default(1)
+  hoursText             String
+  phone                 String
+  email                 String
+  address               String
+  deliveryFee           Int
+  freeDeliveryThreshold Int
+  aboutRu               String
+  aboutEn               String
+  updatedAt             DateTime @updatedAt
+}
+
+model Category {
+  id        String @id
+  nameRu    String
+  nameEn    String
+  sortOrder Int    @default(0)
+  dishes    Dish[]
+}
+
+model Dish {
+  id            String   @id
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  nameRu        String
+  nameEn        String
+  descriptionRu String
+  descriptionEn String
+  price         Int
+  weight        Int
+  image         String
+  tags          String   @default("")
+  allergens     String   @default("")
+  isAvailable   Boolean  @default(true)
+  isFeatured    Boolean  @default(false)
+  sortOrder     Int      @default(0)
+
+  orderItems OrderItem[]
+}
+
+enum BookingStatus {
+  NEW
+  CONFIRMED
+  DECLINED
+  RESCHEDULED
+}
+
+model Booking {
+  id        Int           @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String?
+  date      String
+  time      String
+  guests    Int
+  comment   String?
+  status    BookingStatus @default(NEW)
+  createdAt DateTime      @default(now())
+}
+
+enum FulfilmentMethod {
+  DELIVERY
+  PICKUP
+}
+
+enum FulfilmentTime {
+  ASAP
+  SCHEDULED
+}
+
+enum PaymentMethod {
+  ONLINE
+  CASH
+}
+
+enum OrderStatus {
+  NEW
+  PREPARING
+  ON_THE_WAY
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  NONE
+  PENDING
+  SUCCEEDED
+  CANCELED
+}
+
+model Order {
+  id            Int              @id @default(autoincrement())
+  name          String
+  phone         String
+  email         String?
+  method        FulfilmentMethod
+  address       String?
+  timeType      FulfilmentTime
+  payment       PaymentMethod
+  comment       String?
+  subtotal      Int
+  deliveryFee   Int
+  total         Int
+  status        OrderStatus      @default(NEW)
+  paymentStatus PaymentStatus    @default(NONE)
+  paymentId     String?
+  createdAt     DateTime         @default(now())
+  items         OrderItem[]
+}
+
+model OrderItem {
+  id      Int    @id @default(autoincrement())
+  orderId Int
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  dishId  String
+  dish    Dish   @relation(fields: [dishId], references: [id])
+  name    String
+  price   Int
+  qty     Int
+}

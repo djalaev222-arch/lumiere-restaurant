@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14110d" />
+    <meta
+      name="description"
+      content="Lumière — современный европейский ресторан. Меню, бронирование столика и доставка блюд с фотографиями и живым сервисом."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lumière — ресторан современной европейской кухни</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Lumière",
+        "servesCuisine": "European",
+        "priceRange": "₽₽₽",
+        "telephone": "+7-495-000-12-34",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Тверская, 12",
+          "addressLocality": "Москва",
+          "addressCountry": "RU"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "12:00",
+          "closes": "00:00"
+        },
+        "menu": "https://lumiere-restaurant.ru/menu",
+        "acceptsReservations": "True"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

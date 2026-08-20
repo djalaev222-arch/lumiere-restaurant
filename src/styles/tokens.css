@@ -1,0 +1,66 @@
+:root {
+  /* Color — dark European fine-dining palette */
+  --color-bg: #14110d;
+  --color-bg-alt: #1b1712;
+  --color-surface: #201b16;
+  --color-surface-raised: #262019;
+  --color-border: rgba(243, 237, 228, 0.12);
+  --color-border-strong: rgba(243, 237, 228, 0.22);
+
+  --color-text: #f3ede4;
+  --color-text-muted: #b3a696;
+  --color-text-faint: #8a7d6d;
+
+  --color-accent: #c9a24a;
+  --color-accent-strong: #e0b95c;
+  --color-accent-ink: #2a2109;
+  --color-wine: #7f2a35;
+  --color-wine-strong: #9c3542;
+
+  --color-success: #6f9b6a;
+  --color-danger: #c9564a;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.8rem);
+  --text-sm: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+  --text-lg: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  --text-xl: clamp(1.4rem, 1.25rem + 0.75vw, 1.9rem);
+  --text-2xl: clamp(1.9rem, 1.6rem + 1.5vw, 2.8rem);
+  --text-hero: clamp(2.6rem, 1.9rem + 4vw, 5.4rem);
+
+  /* Spacing */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+  --space-section: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Layout */
+  --content-width: 1200px;
+  --content-padding: clamp(1.25rem, 1rem + 2vw, 3rem);
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-slow: 600ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Shadow */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 0 1px rgba(201, 162, 74, 0.25), 0 8px 30px rgba(201, 162, 74, 0.12);
+}

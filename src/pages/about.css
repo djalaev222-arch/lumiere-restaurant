@@ -1,0 +1,115 @@
+.about-story {
+  padding-block: calc(var(--space-2xl) + var(--space-md)) var(--space-section);
+}
+
+.about-story__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about-story__media {
+  width: 100%;
+}
+
+.about-story__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.about-story__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-story__text h1 {
+  font-size: var(--text-2xl);
+}
+
+.about-story__text p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.about-team {
+  padding-block: var(--space-section);
+  background: var(--color-bg-alt);
+}
+
+.about-team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.team-card img {
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-2xs);
+}
+
+.team-card h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.team-card span {
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.about-gallery {
+  padding-block: var(--space-section);
+}
+
+.about-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.about-gallery__item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.about-gallery__item {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.about-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+@media (min-width: 700px) {
+  .about-team__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .about-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .about-story__grid {
+    grid-template-columns: minmax(220px, 320px) 1fr;
+  }
+}

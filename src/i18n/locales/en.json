@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "booking": "Booking",
+    "delivery": "Delivery",
+    "about": "About",
+    "contacts": "Contacts"
+  },
+  "common": {
+    "bookTable": "Book a table",
+    "orderDelivery": "Order delivery",
+    "viewMenu": "View menu",
+    "addToCart": "Add to cart",
+    "added": "Added",
+    "currency": "₽",
+    "skipToContent": "Skip to content",
+    "loading": "Loading...",
+    "loadError": "Failed to load data. Please refresh the page.",
+    "submitError": "Something went wrong. Please try again.",
+    "openHours": "Open daily 12:00–00:00",
+    "phone": "+7 (495) 000-12-34",
+    "address": "Moscow, Tverskaya St. 12"
+  },
+  "home": {
+    "heroEyebrow": "Modern European restaurant",
+    "heroTitle": "A taste that\nstays with you",
+    "heroSubtitle": "Seasonal produce, refined recipes and an atmosphere worth returning to. Book a table or order delivery — we're glad to welcome you either way.",
+    "advantagesEyebrow": "Why Lumière",
+    "advantagesTitle": "Details that shape the experience",
+    "advantages": [
+      {
+        "title": "Michelin-trained chef",
+        "text": "Over 15 years in Europe's fine-dining kitchens — now in Moscow."
+      },
+      {
+        "title": "Seasonal menu",
+        "text": "The menu is rebuilt every season around the best local produce."
+      },
+      {
+        "title": "45-minute delivery",
+        "text": "Our own courier team keeps the taste and presentation intact."
+      },
+      {
+        "title": "Private rooms",
+        "text": "Separate spaces for intimate dinners and celebrations of up to 20 guests."
+      }
+    ],
+    "reviewsEyebrow": "Guest reviews",
+    "reviewsTitle": "Trusted by our guests",
+    "ctaTitle": "Tonight's tables are nearly full",
+    "ctaSubtitle": "Book your table now — confirmation arrives within 15 minutes.",
+    "menuPreviewEyebrow": "From the menu",
+    "menuPreviewTitle": "A few dishes we're proud of"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Built from seasonal produce. Updated every quarter.",
+    "searchPlaceholder": "Search a dish...",
+    "noResults": "Nothing found. Try a different search or filter.",
+    "filters": {
+      "all": "All",
+      "vegetarian": "Vegetarian",
+      "spicy": "Spicy",
+      "chefChoice": "Chef's choice"
+    },
+    "allergensLabel": "Allergens",
+    "weightLabel": "g",
+    "categories": {
+      "starters": "Starters",
+      "soups": "Soups",
+      "mains": "Mains",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    }
+  },
+  "booking": {
+    "title": "Table booking",
+    "subtitle": "Send a request — we'll confirm by phone or e-mail within 15 minutes.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "How should we address you",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (___) ___-____",
+      "email": "E-mail",
+      "emailPlaceholder": "you@example.com",
+      "emailOptional": "optional",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Guests",
+      "comment": "Special requests",
+      "commentPlaceholder": "High chair, private room, occasion...",
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "required": "Required field",
+      "invalidPhone": "Check the phone number",
+      "invalidEmail": "Check the e-mail",
+      "invalidGuests": "1 to 20 guests",
+      "pastDate": "Choose a date no earlier than today"
+    },
+    "successTitle": "Request sent",
+    "successText": "We'll reach out to confirm your booking within 15 minutes.",
+    "newBooking": "Book another table",
+    "infoTitle": "Booking by phone",
+    "infoText": "If it's easier, call us directly and we'll find the right table for you."
+  },
+  "delivery": {
+    "title": "Delivery",
+    "subtitle": "Add dishes to your cart right from the menu and check out.",
+    "emptyCart": "Your cart is empty",
+    "emptyCartHint": "Open the menu and add the dishes you like.",
+    "goToMenu": "Go to menu",
+    "cartTitle": "Your order",
+    "subtotal": "Subtotal",
+    "deliveryFee": "Delivery",
+    "deliveryFeeFree": "Free",
+    "total": "Total",
+    "freeDeliveryHint": "Free delivery over ₽{{threshold}}",
+    "checkoutTitle": "Checkout",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "E-mail",
+      "method": "Fulfilment method",
+      "methodDelivery": "Courier delivery",
+      "methodPickup": "Pickup",
+      "address": "Delivery address",
+      "addressPlaceholder": "Street, house, apartment, floor, entry code",
+      "time": "Time",
+      "timeAsap": "As soon as possible",
+      "timeScheduled": "Scheduled",
+      "payment": "Payment method",
+      "paymentOnline": "Pay online by card",
+      "paymentCash": "Pay on delivery",
+      "comment": "Order comment",
+      "commentPlaceholder": "No onions, call 10 minutes ahead...",
+      "submit": "Place order",
+      "submitting": "Placing order..."
+    },
+    "successTitle": "Order accepted",
+    "successText": "Order #{{id}}. We'll notify you once the courier is on the way.",
+    "paymentUnavailable": "Order accepted, but online payment is unavailable right now — we'll contact you to arrange payment.",
+    "newOrder": "Start a new order",
+    "qty": "Qty",
+    "remove": "Remove",
+    "payment": {
+      "checkingTitle": "Checking payment",
+      "checkingText": "This takes a few seconds — please don't close the page.",
+      "succeededTitle": "Payment successful",
+      "succeededText": "Order #{{id}} is paid. We'll notify you once the courier is on the way.",
+      "canceledTitle": "Payment failed",
+      "canceledText": "The payment was canceled or declined by your bank. Your order is saved — please try placing it again.",
+      "timeoutTitle": "Couldn't confirm payment",
+      "timeoutText": "Please call us — we'll check the status of your order."
+    }
+  },
+  "about": {
+    "title": "About the restaurant",
+    "storyEyebrow": "Our story",
+    "storyTitle": "From an idea to a place worth staying in",
+    "storyText1": "Lumière opened in 2016 as a small project by a team of chefs in love with European cuisine. Today it's a restaurant people return to for birthdays, business meetings, and ordinary Friday evenings.",
+    "storyText2": "We work with farms around Moscow and shift the menu with the seasons — so the table always carries what genuinely tastes best right now.",
+    "teamEyebrow": "Team",
+    "teamTitle": "The people behind the taste",
+    "galleryEyebrow": "Interior",
+    "galleryTitle": "A space for the evening"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "subtitle": "We're open every day — stop by or call ahead.",
+    "addressTitle": "Address",
+    "hoursTitle": "Opening hours",
+    "hoursValue": "Mon–Sun: 12:00–00:00",
+    "phoneTitle": "Phone",
+    "emailTitle": "E-mail",
+    "emailValue": "hello@lumiere-restaurant.ru",
+    "mapTitle": "Find us"
+  },
+  "footer": {
+    "tagline": "Modern European restaurant in the heart of Moscow.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contacts",
+    "socialTitle": "Follow us",
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "Looks like this dish isn't on our menu.",
+    "cta": "Back to home"
+  }
+}

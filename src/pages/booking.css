@@ -1,0 +1,68 @@
+.booking-page {
+  padding-block: calc(var(--space-2xl) + var(--space-md)) var(--space-section);
+}
+
+.booking-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.booking-page__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  position: sticky;
+  top: 100px;
+}
+
+.booking-page__intro h1 {
+  font-size: var(--text-2xl);
+}
+
+.booking-page__intro p {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  max-width: 480px;
+}
+
+.booking-page__info {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.booking-page__info h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.booking-page__info p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  max-width: none;
+}
+
+.booking-page__phone {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-accent-strong);
+  margin-top: var(--space-2xs);
+}
+
+.booking-page__info span {
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+}
+
+@media (min-width: 960px) {
+  .booking-page__grid {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
