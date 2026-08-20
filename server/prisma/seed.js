@@ -16,6 +16,17 @@ const CATEGORIES = [
 ];
 
 async function main() {
+  // In production this script runs on every deploy (Render build step), so it
+  // must never re-wipe live bookings/orders/staff after the first run. Local
+  // dev (`npm run prisma:seed`) keeps the old always-reset behavior on purpose.
+  if (process.env.NODE_ENV === 'production') {
+    const existing = await prisma.category.count();
+    if (existing > 0) {
+      console.log('Database already seeded — skipping (set NODE_ENV!=production to force a reset).');
+      return;
+    }
+  }
+
   await prisma.orderItem.deleteMany();
   await prisma.order.deleteMany();
   await prisma.booking.deleteMany();

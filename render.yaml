@@ -1,0 +1,53 @@
+services:
+  - type: web
+    name: lumiere-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: server
+    buildCommand: >-
+      npm install &&
+      npx prisma generate --schema prisma/production/schema.prisma &&
+      npx prisma migrate deploy --schema prisma/production/schema.prisma &&
+      NODE_ENV=production node prisma/seed.js
+    startCommand: node src/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: lumiere-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://lumiere-site.onrender.com
+      - key: ADMIN_EMAIL
+        value: admin@lumiere-restaurant.ru
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      # Optional integrations — leave unset to keep payments/notifications in
+      # demo/console-log mode. Fill in later from the Render dashboard without
+      # touching code: YOOKASSA_SHOP_ID, YOOKASSA_SECRET_KEY,
+      # YOOKASSA_RETURN_URL, SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS,
+      # SMTP_FROM, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+
+  - type: web
+    name: lumiere-site
+    runtime: static
+    plan: free
+    rootDir: .
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://lumiere-api.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+databases:
+  - name: lumiere-db
+    plan: free
+    region: frankfurt

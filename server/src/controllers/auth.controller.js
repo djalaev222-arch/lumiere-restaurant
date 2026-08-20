@@ -6,11 +6,15 @@ import { signStaffToken } from '../lib/jwt.js';
 // no account exists for the given email (avoids leaking valid emails via timing).
 const DUMMY_HASH = '$2b$10$Hr8Jp4gk8l2OENe1JIHoe.S1y9jkmiVk22OxSLcPbpcM2R69iPVEq';
 
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const COOKIE_NAME = 'admin_session';
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
+  // In production the frontend and API live on different Render subdomains,
+  // which browsers treat as different sites — SameSite=Lax would silently
+  // drop the cookie on cross-site fetches. None requires Secure to be set.
+  secure: IS_PRODUCTION,
+  sameSite: IS_PRODUCTION ? 'none' : 'lax',
   maxAge: 12 * 60 * 60 * 1000,
   path: '/',
 };
