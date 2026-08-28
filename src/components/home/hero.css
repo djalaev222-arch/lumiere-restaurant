@@ -3,6 +3,7 @@
   overflow: hidden;
   color: var(--color-text);
   padding-block: calc(var(--space-2xl) + var(--space-lg)) var(--space-2xl);
+  isolation: isolate;
 }
 
 .hero__bg {
@@ -16,15 +17,15 @@
   height: 100%;
   object-fit: cover;
   object-position: 60% 45%;
-  filter: saturate(0.85) brightness(0.42);
+  filter: saturate(0.85) brightness(0.4);
 }
 
 .hero__scrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(16, 13, 10, 0.55) 0%, rgba(16, 13, 10, 0.82) 62%, var(--color-bg) 100%),
-    linear-gradient(90deg, rgba(16, 13, 10, 0.9) 0%, rgba(16, 13, 10, 0.35) 55%, rgba(16, 13, 10, 0.7) 100%);
+    linear-gradient(180deg, rgba(16, 13, 10, 0.5) 0%, rgba(16, 13, 10, 0.82) 62%, var(--color-bg) 100%),
+    linear-gradient(90deg, rgba(16, 13, 10, 0.92) 0%, rgba(16, 13, 10, 0.4) 55%, rgba(16, 13, 10, 0.72) 100%);
 }
 
 .hero__glow {
@@ -35,12 +36,32 @@
   pointer-events: none;
 }
 
-.hero__inner {
+/* Plated-dish image — a full-bleed block below the copy on mobile, a
+   full-height panel on the right that dissolves into the background on
+   desktop. */
+.hero__figure {
   position: relative;
   z-index: 1;
+  margin: var(--space-xl) 0 0;
+  width: 100%;
+}
+
+.hero__figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: 50% 40%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-xl);
+  gap: 0;
   align-items: center;
 }
 
@@ -105,7 +126,7 @@
 }
 
 .hero__meta li::before {
-  content: '✦';
+  content: '\2726';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -113,62 +134,55 @@
   top: 0.15em;
 }
 
-.hero__figure {
-  position: relative;
-  margin: 0;
-  justify-self: center;
-  width: min(100%, 26rem);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border-strong);
-}
-
-.hero__figure img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-}
-
-.hero__figure figcaption {
-  position: absolute;
-  left: var(--space-sm);
-  bottom: var(--space-sm);
-  right: var(--space-sm);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  background: rgba(16, 13, 10, 0.62);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 0.55em 1em;
-  text-align: center;
-}
-
 @media (min-width: 900px) {
   .hero {
-    padding-block: calc(var(--space-2xl) + var(--space-xl)) var(--space-2xl);
+    padding-block: calc(var(--space-2xl) + var(--space-xl)) calc(var(--space-2xl) + var(--space-md));
+    min-height: min(88svh, 820px);
+    display: flex;
+    align-items: center;
   }
+
   .hero__inner {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: var(--space-2xl);
+    width: 100%;
   }
+
+  .hero__content {
+    max-width: 34rem;
+  }
+
   .hero__figure {
-    justify-self: end;
-    width: min(100%, 24rem);
-    transform: rotate(1.4deg);
+    position: absolute;
+    inset: 0 0 0 auto;
+    z-index: 1;
+    width: clamp(26rem, 44vw, 50rem);
+    margin: 0;
+    pointer-events: none;
   }
-  .hero__bg img {
-    object-position: 70% 42%;
+
+  .hero__figure img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: 42% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 52%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 52%);
+  }
+
+  .hero__figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 62%, var(--color-bg) 99%);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (min-width: 1280px) {
   .hero__figure {
-    transform: none;
+    width: clamp(40rem, 46vw, 58rem);
+  }
+  .hero__figure img {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 28%, #000 46%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 28%, #000 46%);
   }
 }

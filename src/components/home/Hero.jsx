@@ -7,7 +7,7 @@ import './hero.css';
 const INTERIOR_IMG =
   'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=60';
 const DISH_IMG =
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=74';
+  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=76';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -64,23 +64,17 @@ export default function Hero() {
             <li>{t('home.heroMetaDelivery')}</li>
           </motion.ul>
         </motion.div>
-
-        <motion.figure
-          className="hero__figure"
-          initial={{ opacity: 0, y: reduced ? 0 : 34, scale: reduced ? 1 : 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.9, delay: reduced ? 0 : 0.35, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <img
-            src={DISH_IMG}
-            alt={t('home.menuPreviewTitle')}
-            loading="eager"
-            width={1000}
-            height={1250}
-          />
-          <figcaption>{t('home.heroFigureCaption')}</figcaption>
-        </motion.figure>
       </div>
+
+      <motion.div
+        className="hero__figure"
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: reduced ? 1 : 1.04 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.1, delay: reduced ? 0 : 0.2, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <img src={DISH_IMG} alt="" loading="eager" width={1400} height={1750} />
+      </motion.div>
     </section>
   );
 }

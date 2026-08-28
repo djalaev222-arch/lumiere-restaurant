@@ -20,6 +20,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
+  align-items: start;
 }
 
 .booking-form__field {
@@ -32,9 +33,12 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 400;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .booking-form__optional {
@@ -120,6 +124,6 @@
     grid-template-columns: 1fr 1fr;
   }
   .booking-form__row--three {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1.5fr;
   }
 }
