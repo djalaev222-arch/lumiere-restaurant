@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-  background: radial-gradient(120% 160% at 50% 0%, rgba(201, 162, 74, 0.16), transparent 60%), var(--color-surface);
+  background: radial-gradient(120% 160% at 50% 0%, rgba(224, 180, 95, 0.16), transparent 60%), var(--color-surface);
   border: 1px solid var(--color-border);
   overflow: hidden;
 }
@@ -20,12 +20,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(127, 42, 53, 0.18), transparent 55%);
+  background: linear-gradient(135deg, rgba(127, 42, 53, 0.2), transparent 55%);
   pointer-events: none;
 }
 
 .cta-banner__inner h2 {
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
+  font-weight: 300;
   max-width: 640px;
 }
 

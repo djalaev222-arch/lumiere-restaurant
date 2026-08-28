@@ -73,8 +73,9 @@
 
 .cart-line__total {
   grid-area: total;
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
   color: var(--color-accent-strong);
   justify-self: end;
 }

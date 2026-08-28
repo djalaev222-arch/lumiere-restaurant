@@ -1,6 +1,11 @@
 // Seed source for the backend (server/prisma/seed.js imports this). The frontend
-// now fetches menu data from the API — see src/hooks/useMenu.js — not from here.
+// fetches menu data from the API — see src/hooks/useMenu.js — and falls back to
+// this list when no backend is reachable (static demo). See src/lib/staticData.js.
 export const categories = ['starters', 'soups', 'mains', 'desserts', 'drinks'];
+
+// Curated Unsplash food photography. `img()` keeps the query params in one place.
+const img = (id, w = 1100) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
 
 export const dishes = [
   {
@@ -15,7 +20,7 @@ export const dishes = [
     weight: 220,
     tags: ['vegetarian', 'chefChoice'],
     allergens: ['dairy', 'nuts'],
-    image: 'https://picsum.photos/seed/burrata-peach/800/600',
+    image: img('1592417817098-8fd3d9eb14a5'),
   },
   {
     id: 'tartare-beef',
@@ -29,7 +34,7 @@ export const dishes = [
     weight: 180,
     tags: [],
     allergens: ['egg', 'gluten'],
-    image: 'https://picsum.photos/seed/tartare-beef/800/600',
+    image: img('1540189549336-e6e99c3679fe'),
   },
   {
     id: 'octopus-grill',
@@ -43,7 +48,7 @@ export const dishes = [
     weight: 240,
     tags: ['chefChoice'],
     allergens: [],
-    image: 'https://picsum.photos/seed/octopus-grill/800/600',
+    image: img('1476224203421-9ac39bcb3327'),
   },
   {
     id: 'tuna-tataki',
@@ -57,7 +62,7 @@ export const dishes = [
     weight: 190,
     tags: ['spicy'],
     allergens: ['fish', 'soy'],
-    image: 'https://picsum.photos/seed/tuna-tataki/800/600',
+    image: img('1604909052743-94e838986d24'),
   },
   {
     id: 'pumpkin-soup',
@@ -71,7 +76,7 @@ export const dishes = [
     weight: 320,
     tags: ['vegetarian'],
     allergens: [],
-    image: 'https://picsum.photos/seed/pumpkin-soup/800/600',
+    image: img('1495147466023-ac5c588e2e94'),
   },
   {
     id: 'bouillabaisse',
@@ -85,7 +90,7 @@ export const dishes = [
     weight: 380,
     tags: ['chefChoice'],
     allergens: ['fish', 'shellfish', 'gluten'],
-    image: 'https://picsum.photos/seed/bouillabaisse/800/600',
+    image: img('1455619452474-d2be8b1e70cd'),
   },
   {
     id: 'mushroom-cream-soup',
@@ -99,7 +104,7 @@ export const dishes = [
     weight: 320,
     tags: ['vegetarian'],
     allergens: ['dairy'],
-    image: 'https://picsum.photos/seed/mushroom-soup/800/600',
+    image: img('1476718406336-bb5a9690ee2a'),
   },
   {
     id: 'duck-breast',
@@ -113,7 +118,7 @@ export const dishes = [
     weight: 280,
     tags: ['chefChoice'],
     allergens: [],
-    image: 'https://picsum.photos/seed/duck-breast/800/600',
+    image: img('1432139509613-5c4255815697'),
   },
   {
     id: 'ribeye-steak',
@@ -127,7 +132,7 @@ export const dishes = [
     weight: 320,
     tags: [],
     allergens: [],
-    image: 'https://picsum.photos/seed/ribeye-steak/800/600',
+    image: img('1600891964092-4316c288032e'),
   },
   {
     id: 'seabass',
@@ -141,7 +146,7 @@ export const dishes = [
     weight: 300,
     tags: [],
     allergens: ['fish', 'shellfish'],
-    image: 'https://picsum.photos/seed/seabass/800/600',
+    image: img('1580476262798-bddd9f4b7369'),
   },
   {
     id: 'risotto-truffle',
@@ -155,7 +160,7 @@ export const dishes = [
     weight: 260,
     tags: ['vegetarian', 'chefChoice'],
     allergens: ['dairy'],
-    image: 'https://picsum.photos/seed/risotto-truffle/800/600',
+    image: img('1476124369491-e7addf5db371'),
   },
   {
     id: 'lamb-rack',
@@ -169,7 +174,7 @@ export const dishes = [
     weight: 300,
     tags: ['spicy'],
     allergens: [],
-    image: 'https://picsum.photos/seed/lamb-rack/800/600',
+    image: img('1432139555190-58524dae6a55'),
   },
   {
     id: 'spicy-curry',
@@ -183,7 +188,7 @@ export const dishes = [
     weight: 320,
     tags: ['spicy'],
     allergens: ['shellfish'],
-    image: 'https://picsum.photos/seed/spicy-curry/800/600',
+    image: img('1607330289024-1535c6b4e1c1'),
   },
   {
     id: 'chocolate-fondant',
@@ -197,7 +202,7 @@ export const dishes = [
     weight: 160,
     tags: ['vegetarian', 'chefChoice'],
     allergens: ['dairy', 'egg', 'gluten'],
-    image: 'https://picsum.photos/seed/chocolate-fondant/800/600',
+    image: img('1551024506-0bccd828d307'),
   },
   {
     id: 'creme-brulee',
@@ -211,7 +216,7 @@ export const dishes = [
     weight: 140,
     tags: ['vegetarian'],
     allergens: ['dairy', 'egg'],
-    image: 'https://picsum.photos/seed/creme-brulee/800/600',
+    image: img('1524351199678-941a58a3df50'),
   },
   {
     id: 'pavlova',
@@ -225,7 +230,7 @@ export const dishes = [
     weight: 170,
     tags: ['vegetarian'],
     allergens: ['dairy', 'egg'],
-    image: 'https://picsum.photos/seed/pavlova/800/600',
+    image: img('1488477304112-4944851de03d'),
   },
   {
     id: 'tiramisu',
@@ -239,7 +244,7 @@ export const dishes = [
     weight: 160,
     tags: ['vegetarian'],
     allergens: ['dairy', 'egg', 'gluten'],
-    image: 'https://picsum.photos/seed/tiramisu/800/600',
+    image: img('1571877227200-a0d98ea607e9'),
   },
   {
     id: 'sommelier-red',
@@ -253,7 +258,7 @@ export const dishes = [
     weight: 150,
     tags: [],
     allergens: ['sulfites'],
-    image: 'https://picsum.photos/seed/sommelier-red/800/600',
+    image: img('1553361371-9b22f78e8b1d'),
   },
   {
     id: 'craft-lemonade',
@@ -267,7 +272,7 @@ export const dishes = [
     weight: 300,
     tags: ['vegetarian'],
     allergens: [],
-    image: 'https://picsum.photos/seed/craft-lemonade/800/600',
+    image: img('1497534446932-c925b458314e'),
   },
   {
     id: 'espresso',
@@ -278,7 +283,7 @@ export const dishes = [
     weight: 30,
     tags: ['vegetarian'],
     allergens: [],
-    image: 'https://picsum.photos/seed/espresso/800/600',
+    image: img('1509042239860-f550ce710b93'),
   },
   {
     id: 'spicy-margarita',
@@ -292,7 +297,7 @@ export const dishes = [
     weight: 200,
     tags: ['spicy'],
     allergens: [],
-    image: 'https://picsum.photos/seed/spicy-margarita/800/600',
+    image: img('1514362545857-3bc16c4c7d1b'),
   },
 ];
 

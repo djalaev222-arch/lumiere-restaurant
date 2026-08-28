@@ -8,7 +8,7 @@ import './menu-preview.css';
 export default function MenuPreview() {
   const { t } = useTranslation();
   const { dishes, status } = useMenu();
-  const featured = dishes.filter((dish) => dish.isFeatured);
+  const featured = dishes.filter((dish) => dish.isFeatured).slice(0, 4);
 
   if (status !== 'success' || featured.length === 0) return null;
 
@@ -27,7 +27,7 @@ export default function MenuPreview() {
 
         <div className="menu-preview__grid">
           {featured.map((dish, index) => (
-            <DishCard key={dish.id} dish={dish} index={index} />
+            <DishCard key={dish.id} dish={dish} index={index} compact />
           ))}
         </div>
       </div>

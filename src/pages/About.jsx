@@ -5,14 +5,44 @@ import RevealOnScroll from '../components/ui/RevealOnScroll';
 import { useSettings } from '../hooks/useSettings';
 import './about.css';
 
+const uImg = (id, w, h) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=72`;
+
 const TEAM = [
-  { id: 1, name: 'Алексей Воронов', role: { ru: 'Шеф-повар', en: 'Head chef' }, seed: 'chef-alexey' },
-  { id: 2, name: 'Мария Донцова', role: { ru: 'Су-шеф', en: 'Sous chef' }, seed: 'chef-maria' },
-  { id: 3, name: 'Никита Орлов', role: { ru: 'Шеф-кондитер', en: 'Pastry chef' }, seed: 'chef-nikita' },
-  { id: 4, name: 'Елена Гроза', role: { ru: 'Директор ресторана', en: 'Restaurant manager' }, seed: 'manager-elena' },
+  {
+    id: 1,
+    name: 'Алексей Воронов',
+    role: { ru: 'Шеф-повар', en: 'Head chef' },
+    photo: uImg('1600565193348-f74bd3c7ccdf', 500, 620),
+  },
+  {
+    id: 2,
+    name: 'Мария Донцова',
+    role: { ru: 'Су-шеф', en: 'Sous chef' },
+    photo: uImg('1594744803329-e58b31de8bf5', 500, 620),
+  },
+  {
+    id: 3,
+    name: 'Никита Орлов',
+    role: { ru: 'Шеф-кондитер', en: 'Pastry chef' },
+    photo: uImg('1581299894007-aaa50297cf16', 500, 620),
+  },
+  {
+    id: 4,
+    name: 'Дмитрий Гроза',
+    role: { ru: 'Управляющий', en: 'General manager' },
+    photo: uImg('1552058544-f2b08422138a', 500, 620),
+  },
 ];
 
-const GALLERY_SEEDS = ['interior-1', 'interior-2', 'interior-3', 'interior-4', 'interior-5', 'interior-6'];
+const GALLERY = [
+  uImg('1517248135467-4c7edcad34c4', 700, 700),
+  uImg('1550966871-3ed3cdb5ed0c', 700, 700),
+  uImg('1554118811-1e0d58224f24', 700, 700),
+  uImg('1544148103-0773bf10d330', 700, 700),
+  uImg('1414235077428-338989a2e8c0', 700, 700),
+  uImg('1470337458703-46ad1756a187', 700, 700),
+];
 
 export default function About() {
   const { t, i18n } = useTranslation();
@@ -57,11 +87,11 @@ export default function About() {
             {TEAM.map((member, index) => (
               <RevealOnScroll key={member.id} delay={index * 0.06} className="team-card">
                 <img
-                  src={`https://picsum.photos/seed/${member.seed}/500/600`}
+                  src={member.photo}
                   alt={member.name}
                   loading="lazy"
                   width={500}
-                  height={600}
+                  height={620}
                 />
                 <h3>{member.name}</h3>
                 <span>{member.role[lang] ?? member.role.ru}</span>
@@ -75,9 +105,9 @@ export default function About() {
         <div className="container">
           <SectionHeading eyebrow={t('about.galleryEyebrow')} title={t('about.galleryTitle')} align="center" />
           <div className="about-gallery__grid">
-            {GALLERY_SEEDS.map((seed, index) => (
-              <RevealOnScroll key={seed} delay={index * 0.05} className="about-gallery__item">
-                <img src={`https://picsum.photos/seed/${seed}/700/700`} alt="" loading="lazy" width={700} height={700} />
+            {GALLERY.map((src, index) => (
+              <RevealOnScroll key={src} delay={index * 0.05} className="about-gallery__item">
+                <img src={src} alt="" loading="lazy" width={700} height={700} />
               </RevealOnScroll>
             ))}
           </div>

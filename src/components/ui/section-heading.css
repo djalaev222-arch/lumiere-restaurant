@@ -12,13 +12,23 @@
   align-items: center;
 }
 
+.section-heading--wide {
+  max-width: min(100%, 60ch);
+}
+
 .section-heading__title {
-  font-size: var(--text-2xl);
-  font-weight: 500;
+  font-size: var(--text-3xl);
+  font-weight: 300;
+}
+
+.section-heading__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent-strong);
 }
 
 .section-heading__subtitle {
   color: var(--color-text-muted);
   font-size: var(--text-lg);
-  line-height: 1.5;
+  line-height: 1.55;
 }

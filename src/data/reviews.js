@@ -2,37 +2,61 @@ export const reviews = [
   {
     id: 1,
     name: 'Анна К.',
+    occasion: { ru: 'Годовщина', en: 'Anniversary' },
     rating: 5,
     text: {
-      ru: 'Отмечали годовщину — атмосфера, подача и вкус блюд превзошли ожидания. Обязательно вернёмся.',
-      en: 'We celebrated our anniversary here — the atmosphere, plating and flavours went beyond expectations. We\'ll be back.',
+      ru: 'Атмосфера, подача и вкус превзошли ожидания. Обязательно вернёмся.',
+      en: 'The atmosphere, plating and flavour went beyond expectations. We\'ll be back.',
     },
   },
   {
     id: 2,
     name: 'Дмитрий С.',
+    occasion: { ru: 'Доставка', en: 'Delivery' },
     rating: 5,
     text: {
-      ru: 'Заказывали доставку несколько раз — привозят точно в срок, еда доезжает горячей и красиво упакованной.',
-      en: 'Ordered delivery a few times — it always arrives on time, still hot and beautifully packed.',
+      ru: 'Привозят точно в срок, еда доезжает горячей и красиво упакованной.',
+      en: 'Always on time, still hot and beautifully packed.',
     },
   },
   {
     id: 3,
     name: 'Мария Л.',
+    occasion: { ru: 'Ужин вдвоём', en: 'Dinner for two' },
     rating: 5,
     text: {
-      ru: 'Ризотto с трюфелем — лучшее, что я пробовала в Москве. Сервис ненавязчивый и внимательный одновременно.',
-      en: 'The truffle risotto is the best I\'ve had in Moscow. Service is attentive without being intrusive.',
+      ru: 'Ризотто с трюфелем — лучшее, что я пробовала в Москве. Сервис внимательный и ненавязчивый.',
+      en: 'The truffle risotto is the best I\'ve had in Moscow. Attentive service, never intrusive.',
     },
   },
   {
     id: 4,
     name: 'Игорь П.',
+    occasion: { ru: 'Компания', en: 'Group of 8' },
     rating: 4,
     text: {
-      ru: 'Бронировали стол на компанию из 8 человек — разместили удобно, отдельная зона. Кухня работает быстро.',
-      en: 'Booked a table for a party of 8 — seated comfortably in a separate area. The kitchen is fast.',
+      ru: 'Бронировали стол на восьмерых — отдельная зона, кухня работает быстро.',
+      en: 'Booked for eight — a separate area, and the kitchen is fast.',
+    },
+  },
+  {
+    id: 5,
+    name: 'Екатерина В.',
+    occasion: { ru: 'Бизнес-ланч', en: 'Business lunch' },
+    rating: 5,
+    text: {
+      ru: 'Тихо, красиво, приносят быстро. Идеально для деловой встречи в центре.',
+      en: 'Quiet, elegant, quick to serve. Perfect for a meeting downtown.',
+    },
+  },
+  {
+    id: 6,
+    name: 'Павел Р.',
+    occasion: { ru: 'День рождения', en: 'Birthday' },
+    rating: 5,
+    text: {
+      ru: 'Заказывали приватный зал — учли все пожелания, десерт со свечой вынесли вовремя.',
+      en: 'Booked the private room — every request was met, and the candle dessert arrived right on cue.',
     },
   },
 ];

@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiPlus, FiCheck, FiStar } from 'react-icons/fi';
+import { FiPlus, FiCheck, FiStar, FiArrowUpRight } from 'react-icons/fi';
 import { formatPrice, localized } from '../../lib/format';
 import { useCartStore } from '../../store/cartStore';
 import RevealOnScroll from '../ui/RevealOnScroll';
@@ -12,7 +13,7 @@ const TAG_LABELS = {
   spicy: '🌶',
 };
 
-export default function DishCard({ dish, index = 0 }) {
+export default function DishCard({ dish, index = 0, compact = false }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || i18n.language || 'ru';
   const addItem = useCartStore((state) => state.addItem);
@@ -24,26 +25,50 @@ export default function DishCard({ dish, index = 0 }) {
     window.setTimeout(() => setJustAdded(false), 1400);
   };
 
+  const name = localized(dish.name, lang);
+
+  const media = (
+    <div className="dish-card__media">
+      <img src={dish.image} alt={name} loading="lazy" width={800} height={600} />
+      {dish.tags.includes('chefChoice') && (
+        <span className="dish-card__badge">
+          <FiStar size={12} /> {t('menu.filters.chefChoice')}
+        </span>
+      )}
+      {compact && (
+        <span className="dish-card__go" aria-hidden="true">
+          <FiArrowUpRight size={16} />
+        </span>
+      )}
+    </div>
+  );
+
+  if (compact) {
+    return (
+      <RevealOnScroll className="dish-card dish-card--compact" delay={Math.min(index * 0.06, 0.3)}>
+        <Link to="/menu" className="dish-card__link" aria-label={name}>
+          {media}
+          <div className="dish-card__body">
+            <div className="dish-card__heading">
+              <h3>{name}</h3>
+              <span className="dish-card__price">
+                {formatPrice(dish.price, lang)} {t('common.currency')}
+              </span>
+            </div>
+            <p className="dish-card__desc">{localized(dish.description, lang)}</p>
+          </div>
+        </Link>
+      </RevealOnScroll>
+    );
+  }
+
   return (
     <RevealOnScroll className="dish-card" delay={Math.min(index * 0.05, 0.3)}>
-      <div className="dish-card__media">
-        <img
-          src={dish.image}
-          alt={localized(dish.name, lang)}
-          loading="lazy"
-          width={800}
-          height={600}
-        />
-        {dish.tags.includes('chefChoice') && (
-          <span className="dish-card__badge">
-            <FiStar size={12} /> {t('menu.filters.chefChoice')}
-          </span>
-        )}
-      </div>
+      {media}
 
       <div className="dish-card__body">
         <div className="dish-card__heading">
-          <h3>{localized(dish.name, lang)}</h3>
+          <h3>{name}</h3>
           <span className="dish-card__price">
             {formatPrice(dish.price, lang)} {t('common.currency')}
           </span>
