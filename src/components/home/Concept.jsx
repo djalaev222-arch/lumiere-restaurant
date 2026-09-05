@@ -31,7 +31,7 @@ export default function Concept() {
       />
       <div className="container concept__grid">
         <RevealOnScroll className="concept__media">
-          <img src={conceptImage} alt="" loading="lazy" width={900} height={1120} />
+          <img src={conceptImage} alt="" loading="eager" decoding="async" width={900} height={1120} />
           <figcaption className="concept__quote">
             <span className="concept__quote-mark" aria-hidden="true">
               &ldquo;

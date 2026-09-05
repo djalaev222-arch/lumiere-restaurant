@@ -32,6 +32,7 @@ export default function Events() {
                     src={event.image}
                     alt={localized(event.title, lang)}
                     loading="lazy"
+                    decoding="async"
                     width={900}
                     height={640}
                   />

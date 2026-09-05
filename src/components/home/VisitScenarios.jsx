@@ -32,7 +32,8 @@ export default function VisitScenarios() {
                   <img
                     src={scenario.image}
                     alt={localized(scenario.title, lang)}
-                    loading="lazy"
+                    loading="eager"
+                    decoding="async"
                     width={900}
                     height={1100}
                   />

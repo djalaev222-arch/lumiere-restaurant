@@ -3,10 +3,10 @@ import SeoHead from '../components/ui/SeoHead';
 import SectionHeading from '../components/ui/SectionHeading';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import { useSettings } from '../hooks/useSettings';
+import { photo } from '../lib/assets';
 import './about.css';
 
-const uImg = (id, w, h) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=72`;
+const uImg = (id, w, h) => photo(id, w, h);
 
 const TEAM = [
   {
@@ -58,9 +58,10 @@ export default function About() {
         <div className="container about-story__grid">
           <RevealOnScroll className="about-story__media">
             <img
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&h=675&q=80&auto=format&fit=crop"
+              src={uImg('1517248135467-4c7edcad34c4', 900, 675)}
               alt=""
               loading="lazy"
+              decoding="async"
               width={900}
               height={675}
             />

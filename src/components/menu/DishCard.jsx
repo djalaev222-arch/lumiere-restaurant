@@ -29,7 +29,7 @@ export default function DishCard({ dish, index = 0, compact = false }) {
 
   const media = (
     <div className="dish-card__media">
-      <img src={dish.image} alt={name} loading="lazy" width={800} height={600} />
+      <img src={dish.image} alt={name} loading="lazy" decoding="async" width={800} height={600} />
       {dish.tags.includes('chefChoice') && (
         <span className="dish-card__badge">
           <FiStar size={12} /> {t('menu.filters.chefChoice')}

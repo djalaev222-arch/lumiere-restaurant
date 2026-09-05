@@ -1,9 +1,10 @@
 // Content for the one-page landing sections that don't come from the menu API:
 // visit scenarios, special formats, events, FAQ, awards. Localised {ru, en}
 // fields follow the same shape as src/data/menu.js and src/data/reviews.js.
-// Photography reuses Unsplash IDs already verified elsewhere in the project.
-const img = (id, w = 1100, h) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${h ? `&h=${h}` : ''}&q=72`;
+// Photography is self-hosted WebP under public/img/ — see src/lib/assets.js.
+import { photo } from '../lib/assets.js';
+
+const img = (id, w, h) => photo(id, w, h);
 
 // 3 — Сценарии визита
 export const visitScenarios = [
@@ -15,7 +16,7 @@ export const visitScenarios = [
       ru: 'Тихое утро, фильтр-кофе и выпечка из своей пекарни.',
       en: 'A quiet morning, filter coffee and pastry from our own bakery.',
     },
-    image: img('1509042239860-f550ce710b93', 900, 1100),
+    image: img('1509042239860-f550ce710b93', 720, 880),
   },
   {
     id: 'lunch',
@@ -25,7 +26,7 @@ export const visitScenarios = [
       ru: 'Сет из трёх блюд за 40 минут — для встреч в центре.',
       en: 'A three-course set in 40 minutes — for meetings downtown.',
     },
-    image: img('1495147466023-ac5c588e2e94', 900, 1100),
+    image: img('1495147466023-ac5c588e2e94', 720, 880),
   },
   {
     id: 'dinner',
@@ -35,7 +36,7 @@ export const visitScenarios = [
       ru: 'Свет свечей, дегустационное меню и пейринг от сомелье.',
       en: 'Candlelight, a tasting menu and a sommelier pairing.',
     },
-    image: img('1432139509613-5c4255815697', 900, 1100),
+    image: img('1432139509613-5c4255815697', 720, 880),
   },
   {
     id: 'bar',
@@ -45,7 +46,7 @@ export const visitScenarios = [
       ru: 'Авторские коктейли и карта вин на 120 позиций у барной стойки.',
       en: 'Signature cocktails and a 120-label wine list at the bar.',
     },
-    image: img('1514362545857-3bc16c4c7d1b', 900, 1100),
+    image: img('1514362545857-3bc16c4c7d1b', 720, 880),
   },
 ];
 
@@ -57,17 +58,17 @@ export const conceptStats = [
   { id: 'seats', value: 64, suffix: '', label: { ru: 'посадочных места', en: 'seats in the room' } },
 ];
 
-export const conceptImage = img('1600565193348-f74bd3c7ccdf', 900, 1120);
-export const conceptParallax = img('1550966871-3ed3cdb5ed0c', 1600, 1000);
+export const conceptImage = img('1600565193348-f74bd3c7ccdf', 720, 900);
+export const conceptParallax = img('1550966871-3ed3cdb5ed0c', 1200, 750);
 
 // 6 — Пространство
 export const spaceGallery = [
-  { src: img('1517248135467-4c7edcad34c4', 1100, 1400), caption: { ru: 'Основной зал', en: 'Main hall' } },
-  { src: img('1550966871-3ed3cdb5ed0c', 1100, 1400), caption: { ru: 'Зал у окна', en: 'Window room' } },
-  { src: img('1554118811-1e0d58224f24', 1100, 1400), caption: { ru: 'Барная зона', en: 'Bar area' } },
-  { src: img('1544148103-0773bf10d330', 1100, 1400), caption: { ru: 'Банкетный зал', en: 'Banquet room' } },
-  { src: img('1470337458703-46ad1756a187', 1100, 1400), caption: { ru: 'Летняя веранда', en: 'Summer terrace' } },
-  { src: img('1414235077428-338989a2e8c0', 1100, 1400), caption: { ru: 'Каминный зал', en: 'Fireside room' } },
+  { src: img('1517248135467-4c7edcad34c4', 680, 850), caption: { ru: 'Основной зал', en: 'Main hall' } },
+  { src: img('1550966871-3ed3cdb5ed0c', 680, 850), caption: { ru: 'Зал у окна', en: 'Window room' } },
+  { src: img('1554118811-1e0d58224f24', 680, 850), caption: { ru: 'Барная зона', en: 'Bar area' } },
+  { src: img('1544148103-0773bf10d330', 680, 850), caption: { ru: 'Банкетный зал', en: 'Banquet room' } },
+  { src: img('1470337458703-46ad1756a187', 680, 850), caption: { ru: 'Летняя веранда', en: 'Summer terrace' } },
+  { src: img('1414235077428-338989a2e8c0', 680, 850), caption: { ru: 'Каминный зал', en: 'Fireside room' } },
 ];
 
 // 7 — Особые форматы
@@ -80,7 +81,7 @@ export const specialFormats = [
       en: 'Six seats at the open kitchen, 12 courses and the chef with you all night.',
     },
     meta: { ru: 'до 6 гостей · 4 часа', en: 'up to 6 guests · 4 hours' },
-    image: img('1476224203421-9ac39bcb3327', 1400, 1000),
+    image: img('1476224203421-9ac39bcb3327', 900, 640),
   },
   {
     id: 'banquets',
@@ -90,7 +91,7 @@ export const specialFormats = [
       en: 'A private room for 20, a dedicated menu and your own service team.',
     },
     meta: { ru: 'до 20 гостей · зал целиком', en: 'up to 20 guests · whole room' },
-    image: img('1544148103-0773bf10d330', 1400, 1000),
+    image: img('1544148103-0773bf10d330', 900, 640),
   },
   {
     id: 'gastro',
@@ -100,7 +101,7 @@ export const specialFormats = [
       en: 'Four-hands dinners with guest chefs — once a month, by reservation.',
     },
     meta: { ru: 'раз в месяц · по записи', en: 'monthly · reservation only' },
-    image: img('1600891964092-4316c288032e', 1400, 1000),
+    image: img('1600891964092-4316c288032e', 900, 640),
   },
 ];
 
@@ -122,7 +123,7 @@ export const events = [
       ru: 'Дичь, тыква, лесные грибы и новые десерты на облепихе.',
       en: 'Game, pumpkin, wild mushrooms and new sea-buckthorn desserts.',
     },
-    image: img('1571877227200-a0d98ea607e9', 900, 640),
+    image: img('1571877227200-a0d98ea607e9', 720, 512),
   },
   {
     id: 'wine-evening',
@@ -132,7 +133,7 @@ export const events = [
       ru: 'Пять хозяйств, шесть подач, сомелье Lumière весь вечер за столом.',
       en: 'Five estates, six courses, the Lumière sommelier at the table all night.',
     },
-    image: img('1553361371-9b22f78e8b1d', 900, 640),
+    image: img('1553361371-9b22f78e8b1d', 720, 512),
   },
   {
     id: 'guest-chef',
@@ -142,7 +143,7 @@ export const events = [
       ru: 'Гастроужин в четыре руки — классика Роны и наши сезонные продукты.',
       en: 'A four-hands dinner — Rhône classics meet our seasonal produce.',
     },
-    image: img('1455619452474-d2be8b1e70cd', 900, 640),
+    image: img('1455619452474-d2be8b1e70cd', 720, 512),
   },
 ];
 

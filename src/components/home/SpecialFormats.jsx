@@ -33,8 +33,9 @@ export default function SpecialFormats() {
                   src={format.image}
                   alt={localized(format.title, lang)}
                   loading="lazy"
-                  width={1400}
-                  height={1000}
+                  decoding="async"
+                  width={1100}
+                  height={780}
                 />
               </div>
               <div className="format-card__body">

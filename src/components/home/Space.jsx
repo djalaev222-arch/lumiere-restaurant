@@ -58,9 +58,10 @@ export default function Space() {
             <img
               src={item.src}
               alt={localized(item.caption, lang)}
-              loading={index < 2 ? 'eager' : 'lazy'}
-              width={1100}
-              height={1400}
+              loading={index < 4 ? 'eager' : 'lazy'}
+              decoding="async"
+              width={900}
+              height={1120}
             />
             <figcaption>
               <span className="space-slide__num">{String(index + 1).padStart(2, '0')}</span>

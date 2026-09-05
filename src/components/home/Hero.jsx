@@ -2,12 +2,11 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { photo } from '../../lib/assets';
 import './hero.css';
 
-const INTERIOR_IMG =
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=60';
-const DISH_IMG =
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=76';
+const INTERIOR_IMG = photo('1517248135467-4c7edcad34c4', 1600);
+const DISH_IMG = photo('1414235077428-338989a2e8c0', 1000, 1250);
 
 export default function Hero() {
   const { t } = useTranslation();

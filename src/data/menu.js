@@ -1,11 +1,13 @@
 // Seed source for the backend (server/prisma/seed.js imports this). The frontend
 // fetches menu data from the API — see src/hooks/useMenu.js — and falls back to
 // this list when no backend is reachable (static demo). See src/lib/staticData.js.
+import { photo } from '../lib/assets.js';
+
 export const categories = ['starters', 'soups', 'mains', 'desserts', 'drinks'];
 
-// Curated Unsplash food photography. `img()` keeps the query params in one place.
-const img = (id, w = 1100) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
+// Self-hosted WebP food photography — see src/lib/assets.js. The id is the
+// original Unsplash photo id; `720` is the stored card width.
+const img = (id) => photo(id, 720);
 
 export const dishes = [
   {
