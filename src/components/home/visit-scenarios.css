@@ -45,7 +45,7 @@
   letter-spacing: 0.12em;
   padding: 0.4em 0.7em;
   border-radius: var(--radius-pill);
-  background: rgba(16, 13, 10, 0.72);
+  background: rgba(21, 22, 26, 0.72);
   border: 1px solid var(--color-border-strong);
   color: var(--color-text);
   backdrop-filter: blur(6px);

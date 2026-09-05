@@ -69,7 +69,7 @@
 
 .btn--wine:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(127, 42, 53, 0.35);
+  box-shadow: 0 8px 24px rgba(92, 107, 99, 0.4);
 }
 
 .btn:disabled {

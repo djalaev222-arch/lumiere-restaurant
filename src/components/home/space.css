@@ -83,7 +83,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   color: var(--color-text);
-  background: linear-gradient(to top, rgba(16, 13, 10, 0.9), transparent);
+  background: linear-gradient(to top, rgba(21, 22, 26, 0.9), transparent);
 }
 
 .space-slide__num {

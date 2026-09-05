@@ -18,7 +18,7 @@
 .cursor-dot.is-active {
   width: 34px;
   height: 34px;
-  background: rgba(224, 180, 95, 0.35);
+  background: rgba(176, 141, 87, 0.35);
 }
 
 .cursor-dot.is-down {
