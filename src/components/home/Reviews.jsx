@@ -2,7 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiStar, FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import SectionHeading from '../ui/SectionHeading';
+import RevealOnScroll from '../ui/RevealOnScroll';
 import { reviews } from '../../data/reviews';
+import { awards } from '../../data/landing';
 import { localized } from '../../lib/format';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import './reviews.css';
@@ -47,11 +49,12 @@ export default function Reviews() {
   };
 
   return (
-    <section className="reviews">
+    <section className="section section--alt reviews" id="reviews" aria-labelledby="reviews-heading">
       <div className="container">
         <SectionHeading
           eyebrow={t('home.reviewsEyebrow')}
           title={t('home.reviewsTitle')}
+          titleId="reviews-heading"
           align="center"
         />
 
@@ -81,9 +84,7 @@ export default function Reviews() {
                         />
                       ))}
                     </div>
-                    <blockquote className="review__text">
-                      {localized(review.text, lang)}
-                    </blockquote>
+                    <blockquote className="review__text">{localized(review.text, lang)}</blockquote>
                     <figcaption className="review__by">
                       <span className="review__name">{review.name}</span>
                       <span className="review__occasion">{localized(review.occasion, lang)}</span>
@@ -118,6 +119,18 @@ export default function Reviews() {
             />
           ))}
         </div>
+
+        <RevealOnScroll className="recognition">
+          <h3 className="recognition__title">{t('home.recognitionTitle')}</h3>
+          <ul className="recognition__grid">
+            {awards.map((award) => (
+              <li className="recognition__item" key={award.id}>
+                <span className="recognition__award">{award.title}</span>
+                <span className="recognition__note">{localized(award.note, lang)}</span>
+              </li>
+            ))}
+          </ul>
+        </RevealOnScroll>
       </div>
     </section>
   );

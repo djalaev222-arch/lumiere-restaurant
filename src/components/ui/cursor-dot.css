@@ -1,0 +1,33 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent-strong);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: width var(--duration-fast) var(--ease-out-expo),
+    height var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.cursor-dot.is-active {
+  width: 34px;
+  height: 34px;
+  background: rgba(224, 180, 95, 0.35);
+}
+
+.cursor-dot.is-down {
+  width: 22px;
+  height: 22px;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
+}

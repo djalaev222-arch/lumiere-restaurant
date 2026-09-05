@@ -1,0 +1,95 @@
+.contacts-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.contacts-section__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.contacts-section__info h2 {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+}
+
+.contacts-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.contacts-section__list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--space-sm);
+  align-items: center;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contacts-section__row-icon {
+  grid-row: 1 / 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-accent);
+}
+
+.contacts-section__row-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.contacts-section__list a,
+.contacts-section__list li > span:last-child {
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+.contacts-section__list a:hover {
+  color: var(--color-accent);
+}
+
+.contacts-section__map {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background:
+    repeating-linear-gradient(0deg, var(--color-surface) 0 39px, var(--color-border) 39px 40px),
+    repeating-linear-gradient(90deg, var(--color-surface) 0 39px, var(--color-border) 39px 40px),
+    var(--color-surface);
+  aspect-ratio: 4 / 3;
+}
+
+.contacts-section__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.3) brightness(0.9);
+}
+
+@media (min-width: 900px) {
+  .contacts-section__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+  }
+
+  .contacts-section__map {
+    aspect-ratio: 3 / 2;
+  }
+}

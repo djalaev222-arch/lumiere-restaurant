@@ -43,6 +43,12 @@ video {
   display: block;
 }
 
+/* Clear the HTML width/height presentational hints so CSS aspect-ratio and
+   object-fit fully control sizing (prevents vertically stretched images). */
+img {
+  height: auto;
+}
+
 h1,
 h2,
 h3,
@@ -158,4 +164,37 @@ ol {
 
 .route-fallback {
   min-height: 60vh;
+}
+
+/* One-page landing — section rhythm + anchor offset under the sticky header */
+.section[id],
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section--tight {
+  padding-block: var(--space-2xl);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+  border-block: 1px solid var(--color-border);
+}
+
+.section__foot {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Leave room for the fixed mobile booking bar */
+@media (max-width: 899px) {
+  body:has(.mobile-book-bar) {
+    padding-bottom: 4.75rem;
+  }
 }

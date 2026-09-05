@@ -38,12 +38,20 @@ test.describe('Public site', () => {
     await expect(page.locator('.site-header__link', { hasText: 'Menu' })).toBeVisible();
   });
 
-  test('mobile nav opens and links work', async ({ page }) => {
+  test('mobile nav opens and scrolls to a section', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     await page.click('.site-header__burger');
     await expect(page.locator('.mobile-nav__panel')).toBeVisible();
     await page.click('.mobile-nav__link:has-text("Меню")');
-    await expect(page).toHaveURL(/\/menu$/);
+    await expect(page).toHaveURL(/#menu$/);
+    await expect(page.locator('#menu')).toBeInViewport();
+  });
+
+  test('mobile booking bar links to the booking form', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    await page.click('.mobile-book-bar__cta');
+    await expect(page.locator('#booking .booking-form')).toBeVisible();
   });
 });

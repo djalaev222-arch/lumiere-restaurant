@@ -4,6 +4,7 @@ import './section-heading.css';
 export default function SectionHeading({
   eyebrow,
   title,
+  titleId,
   subtitle,
   align = 'left',
   wide = false,
@@ -16,7 +17,9 @@ export default function SectionHeading({
       {eyebrow && (
         <span className={`eyebrow ${align === 'center' ? 'eyebrow--center' : ''}`.trim()}>{eyebrow}</span>
       )}
-      <h2 className="section-heading__title">{title}</h2>
+      <h2 className="section-heading__title" id={titleId}>
+        {title}
+      </h2>
       {subtitle && <p className="section-heading__subtitle">{subtitle}</p>}
     </RevealOnScroll>
   );

@@ -12,7 +12,7 @@ const CATEGORY_NAMES = {
 };
 
 export const STATIC_SETTINGS = {
-  hoursText: 'Пн–Вс: 12:00–00:00',
+  hoursText: 'Пн–Вс: 09:00–00:00',
   phone: '+7 (495) 000-12-34',
   email: 'hello@lumiere-restaurant.ru',
   address: 'Москва, ул. Тверская, 12',

@@ -23,9 +23,17 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero">
+    <section className="hero" id="top">
       <div className="hero__bg" aria-hidden="true">
-        <img src={INTERIOR_IMG} alt="" loading="eager" fetchPriority="high" width={1600} height={1067} />
+        <img
+          className={reduced ? '' : 'hero__bg-kenburns'}
+          src={INTERIOR_IMG}
+          alt=""
+          loading="eager"
+          fetchPriority="high"
+          width={1600}
+          height={1067}
+        />
         <div className="hero__scrim" />
         <div className="hero__glow" />
       </div>
@@ -50,11 +58,11 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className="hero__actions" variants={item}>
-            <Button to="/booking" size="lg">
+            <Button href="#booking" size="lg">
               {t('common.bookTable')}
             </Button>
-            <Button to="/delivery" variant="outline" size="lg">
-              {t('common.orderDelivery')}
+            <Button href="#menu" variant="outline" size="lg">
+              {t('common.viewMenu')}
             </Button>
           </motion.div>
 
@@ -75,6 +83,11 @@ export default function Hero() {
       >
         <img src={DISH_IMG} alt="" loading="eager" width={1400} height={1750} />
       </motion.div>
+
+      <a className="hero__scroll" href="#scenarios" aria-label={t('home.heroScroll')}>
+        <span>{t('home.heroScroll')}</span>
+        <span className="hero__scroll-line" aria-hidden="true" />
+      </a>
     </section>
   );
 }

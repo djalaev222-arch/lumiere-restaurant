@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { FiCheckCircle } from 'react-icons/fi';
 import Button from '../ui/Button';
 import { createBooking } from '../../lib/api';
+import { bookingFormats } from '../../data/landing';
 import './booking-form.css';
 
 const todayIso = () => new Date().toISOString().split('T')[0];
@@ -38,6 +39,7 @@ function buildSchema(t) {
       .min(1, t('booking.form.invalidGuests'))
       .max(20, t('booking.form.invalidGuests'))
       .required(t('booking.form.required')),
+    format: yup.string().notRequired(),
     comment: yup.string().notRequired(),
     company: yup.string().max(0),
   });
@@ -56,13 +58,18 @@ export default function BookingForm() {
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: { date: todayIso(), guests: 2 },
+    defaultValues: { date: todayIso(), guests: 2, format: '' },
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async ({ format, comment, ...rest }) => {
     setSubmitError(null);
+    // The API keeps a fixed booking schema — fold the visit format into the
+    // free-text comment rather than adding a new field on the wire.
+    const formatNote = format ? `${t('booking.form.format')}: ${t(`booking.formats.${format}`)}` : '';
+    const mergedComment = [formatNote, comment?.trim()].filter(Boolean).join('. ');
+
     try {
-      await createBooking(data);
+      await createBooking({ ...rest, comment: mergedComment });
       setSubmitted(true);
     } catch {
       setSubmitError(t('common.submitError'));
@@ -163,6 +170,18 @@ export default function BookingForm() {
           </select>
           <AnimatePresence>{errors.guests && <FieldError>{errors.guests.message}</FieldError>}</AnimatePresence>
         </div>
+      </div>
+
+      <div className="booking-form__field">
+        <label htmlFor="format">{t('booking.form.format')}</label>
+        <select id="format" defaultValue="" {...register('format')}>
+          <option value="">—</option>
+          {bookingFormats.map((value) => (
+            <option key={value} value={value}>
+              {t(`booking.formats.${value}`)}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="booking-form__field">
